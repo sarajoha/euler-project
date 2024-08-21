@@ -1,19 +1,15 @@
-def is_palindrom(number):
+def is_palindrome(number):
     # return true if number is palindrome
-    temporal_number = number
-    mod_num = 10
-    # empezar a descomponer desde la unidad y no la decena
-    while temporal_number > 0:  # condicion diferente
-        digito = number % mod_num
-        print("DIG", digito)
-        print("DIG * 10", digito * 10)
-        temporal_number = temporal_number - (digito * 10) - digito
-        print("TEMP", temporal_number)
-        mod_num = mod_num * mod_num
-        # reverted_number = reverted_number + (digito * 10)
-        # print("REV", temporal_number)
+    reverse_num = 0
+    temp_num = number
 
-    if (-1 * temporal_number) == number:
+    while temp_num > 0:
+        digit = temp_num % 10
+        reverse_num = (reverse_num * 10) + digit
+        # decompose number by removing the last digit in each iteration
+        temp_num = temp_num // 10
+
+    if reverse_num == number:
         return True
 
     return False
@@ -29,5 +25,15 @@ number_5 = 27156  # False
 # print(is_palindrom(number_1))
 # print(is_palindrom(number_2))
 # print(is_palindrom(number_3))
-print(is_palindrom(number_4))
+print(is_palindrome(number_4))
 # print(is_palindrom(number_5))
+
+
+def is_palindrome_str(number):
+    # TODO: implement with str methods to reverse number
+    pass
+
+
+def is_palindrome_efficient(number):
+    # TODO: implement more efficient method that checks extreme numbers
+    pass
